@@ -46,4 +46,30 @@ WHERE  (VeryActiveMinutes+FairlyActiveMinutes+LightlyActiveMinutes+SedentaryMinu
 GROUP BY DayName
  
  
+ -- Average number of Steps per week day
+
+SELECT  
+AVG(TotalSteps) as total_steps,
+AVG(TotalDistance) as total_dist,
+AVG(Calories) as total_calories,DayName
+FROM `nimishaprojects.Google_Capestone1.Dailyactivity_cleaned`
+Group By  DayName
+
+
+
+
+-- Relation Between Steps and Calories Burned:
+
+SELECT Id, AVG(TotalSteps) AS Total_Steps, AVG(Calories) AS Total_Calories
+FROM  `nimishaprojects.Google_Capestone1.Dailyactivity_cleaned`
+  GROUP BY Id
+
+-- Sleeping time per day of week
+
+SELECT AVG(TotalMinutesAsleep) , DayName
+FROM `nimishaprojects.Google_Capestone1.Seepdayupdated` 
+group by DayName
+
+
+
 
